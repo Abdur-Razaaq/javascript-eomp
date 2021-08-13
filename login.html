@@ -5,32 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <form action="#" method="post">
-      <div class="username">
-        <label for="username">Username: </label>
-        <input
-          type="text"
-          name="username"
-          id="name"
-          placeholder="Username"
-          required
-          class="contact-input"
-        />
-      </div>
-      <div class="contact-details">
-        <label for="email" class="contact-label">Password: </label>
-        <input
-          type="password"
-          name="Password"
-          id="email"
-          placeholder="Password"
-          required
-          class="contact-input"
-        />
-      </div>
-      <button type="login" class="contact-button">login</button>
-    </form>
+    <div>
+      <form method="POST" onsubmit="event.preventDefault()">
+        <div class="username">
+          <label for="username">Username: </label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+            class="contact-input"
+          />
+        </div>
+        <div class="contact-details">
+          <label for="password" class="login-label">Password: </label>
+          <input
+            type="password"
+            name="Password"
+            placeholder="Password"
+            required
+            class="contact-input"
+          />
+        </div>
+        <button onclick="login()" type="button" class="login-button">
+          login
+        </button>
+      </form>
+    </div>
+    <script src="./main.js"></script>
   </body>
 </html>
