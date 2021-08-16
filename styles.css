@@ -7,6 +7,9 @@
 
 body {
   background-image: url(./images/home2.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 /* Home Page */
