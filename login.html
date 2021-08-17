@@ -23,28 +23,20 @@
     </div>
     <div class="the-form">
       <form method="POST" onsubmit="event.preventDefault()">
-        <div class="username">
-          <label for="username">Username: </label>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            required
-            class="contact-input"
-          />
-        </div>
-        <div class="contact-details">
-          <label for="password" class="login-label">Password: </label>
-          <input
-            type="password"
-            name="Password"
-            placeholder="Password"
-            required
-            class="contact-input"
-          />
-        </div>
-        <button onclick="login()" type="button" class="login-button">
-          login
+        <input
+          id="username"
+          placeholder="username"
+          name="username"
+          type="text"
+        />
+        <input
+          id="password"
+          placeholder="password"
+          name="password"
+          type="password"
+        />
+        <button onclick="login()" class="login-btn" type="button">
+          Lets Shop
         </button>
       </form>
     </div>

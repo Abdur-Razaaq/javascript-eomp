@@ -1,29 +1,63 @@
-let products = [];
-
-fetch("https://infinite-bastion-55594.herokuapp.com/show-products/").then(
-  (response) =>
-    response.json().then((data) => {
-      console.log(data.data);
-      items = data.data;
-      let container = document.querySelector(".product-container");
-      container.innerHTML = ``;
-      items.forEach((item) => {
-        console.log(item);
-        container.innerHTML += `
-        <div class="item">
-          <img src="https://picsum.photos/200/200?random=${item[0]}" alt="" />
-          <p class="name">${item[1]}</p>
-          <p class="description">${item[2]}</p>
-          <p class="price">${item[3]}</p>
-          <p class="category">${item[4]}</p>
-          <button onclick="showEdit(${item[0]})" class="btn">Edit</button>
-          <button>Delete</button>
-        </div>
-        `;
-      });
-    })
-);
-
-function showEdit(id) {
-  console.log(id);
+// LOGIN FUNCTION
+function login() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  console.log(username);
+  console.log(password);
+  fetch("https://infinite-bastion-55594.herokuapp.com/auth", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data["access_token"]) {
+        console.log(data);
+        myStorage = window.localStorage;
+        myStorage.setItem("jwt-token", data["access_token"]);
+        myStorage.setItem("username", username);
+        myStorage.setItem("password", password);
+        window.location.href = "shopping.html";
+      }
+    });
 }
+
+// REGISTER FUNCTION
+document
+  .getElementById("register-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const first_name = document.getElementById("first_name").value;
+    const last_name = document.getElementById("last_name").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+
+    fetch("https://infinite-bastion-55594.herokuapp.com/user-registration/", {
+      method: "POST",
+      body: JSON.stringify({
+        first_name: first_name,
+        last_name: last_name,
+        username: username,
+        password: password,
+        email: email,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(function (response) {
+        if (response.status < 400 && response.status >= 200) {
+          console.log("response", response);
+        }
+      })
+      .catch(function (error) {
+        console.log("there was error with registering");
+        console.log("error", error);
+      });
+  });
