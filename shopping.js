@@ -16,14 +16,9 @@ fetch("https://infinite-bastion-55594.herokuapp.com/show-products/").then(
           <p class="description">${item[2]}</p>
           <p class="price">${item[3]}</p>
           <p class="category">${item[4]}</p>
-          <button onclick="showEdit(${item[0]})" class="btn">Edit</button>
-          <button>Delete</button>
+          <button>Add to Cart</button>
         </div>
         `;
       });
     })
 );
-
-function showEdit(id) {
-  console.log(id);
-}

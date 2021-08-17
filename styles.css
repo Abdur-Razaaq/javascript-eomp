@@ -12,6 +12,53 @@ body {
   background-attachment: fixed;
 }
 
+/* NavBar */
+.header {
+  padding: 20px;
+  width: 100%;
+  background: white;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+
+.header .logo {
+  font-style: italic;
+  font-size: 20px;
+}
+
+.header .logo span {
+  color: red;
+}
+
+.header nav {
+  color: #0000;
+}
+
+.header nav a {
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+.header nav a {
+  color: white;
+  background-color: deepskyblue;
+  margin-left: 30px;
+  border-radius: 30px;
+}
+
+.header nav a:hover {
+  opacity: 0.9;
+  color: darkblue;
+}
+
 /* Home Page */
 .main-content {
   display: flex;
@@ -121,4 +168,7 @@ input:focus {
 
 /* Media Queries */
 @media (max-width: 1000px) {
+  .logo {
+    display: none;
+  }
 }
